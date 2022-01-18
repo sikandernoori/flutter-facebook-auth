@@ -91,7 +91,7 @@ class FacebookAuth: NSObject {
         
         let viewController: UIViewController = (mainWindow?.rootViewController)!
         
-        loginManager.logIn(permissions: permissions, from: viewController, handler: { (result,error)->Void in
+        loginManager.logIn(permissions: permissions, tracking: .limited, from: viewController, handler: { (result,error)->Void in
             if error != nil{
                 self.finishWithError(errorCode: "FAILED", message: error!.localizedDescription)
             }else if result!.isCancelled{
